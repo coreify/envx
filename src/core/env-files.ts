@@ -125,7 +125,7 @@ export function parseEnvFileDetails(content: string): {
   };
 }
 
-function defaultEnvFiles(mode = detectMode(), ci = detectCiMode()): string[] {
+function defaultEnvFiles(mode = detectMode(), ci = false): string[] {
   const files = [".env"];
 
   if (mode) {
@@ -158,12 +158,6 @@ function parseEnvValue(rawValue: string): string {
     commentIndex >= 0 ? rawValue.slice(0, commentIndex) : rawValue;
 
   return valueWithoutComment.trim();
-}
-
-function detectCiMode(): boolean {
-  const env = getProcessEnv();
-  const value = env.CI?.trim().toLowerCase();
-  return value === "1" || value === "true";
 }
 
 function findExistingPaths(key: string, files: LoadedEnvFile[]): string[] {
