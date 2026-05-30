@@ -1,17 +1,17 @@
-# @coreify/env
+# @coreify/envx
 
-Type-safe, minimal, and developer-first environment management for modern Node apps and CLIs.
+Type-safe, advanced, and developer-first environment management for modern Node apps and CLIs.
 
 ## Installation
 
 ```bash
-npm install @coreify/env
+npm install @coreify/envx
 ```
 
 ## Quick Start
 
 ```ts
-import { boolean, createEnv, enumType, number, string } from "@coreify/env";
+import { boolean, createEnv, enumType, number, string } from "@coreify/envx";
 
 export const env = createEnv({
   PORT: number().default(3000),
@@ -48,7 +48,7 @@ string().url();
 ## Server / Client Split
 
 ```ts
-import { createEnv, defineConfig, string } from "@coreify/env";
+import { createEnv, defineConfig, string } from "@coreify/envx";
 
 export const env = createEnv({
   server: {
@@ -67,7 +67,7 @@ Client keys must use the configured public prefix. The default prefix is `PUBLIC
 
 ## Supported Env Files
 
-`@coreify/env` loads these files automatically, in order:
+`@coreify/envx` loads these files automatically, in order:
 
 1. `.env`
 2. `.env.{mode}`
@@ -94,7 +94,7 @@ createEnv(schema, {
 You can also validate manually:
 
 ```ts
-import { validateExampleFile } from "@coreify/env";
+import { validateExampleFile } from "@coreify/envx";
 
 validateExampleFile(schema, {
   cwd: process.cwd()
@@ -104,7 +104,7 @@ validateExampleFile(schema, {
 Generate or sync example files directly:
 
 ```ts
-import { generateExampleFile, syncExampleFile } from "@coreify/env";
+import { generateExampleFile, syncExampleFile } from "@coreify/envx";
 
 generateExampleFile(schema, {
   cwd: process.cwd()
@@ -156,8 +156,8 @@ The built-in CLI is Node-based and loads config files via local module import.
 Create a config file:
 
 ```ts
-// coreenv.config.mjs
-import { defineConfig, number, string } from "@coreify/env";
+// envx.config.mjs
+import { defineConfig, number, string } from "@coreify/envx";
 
 export default defineConfig({
   schema: {
@@ -170,10 +170,10 @@ export default defineConfig({
 Then run:
 
 ```bash
-coreenv check
-coreenv example:generate
-coreenv example:sync
-coreenv doctor
+coreenvx check
+coreenvx example:generate
+coreenvx example:sync
+coreenvx doctor
 ```
 
 Useful flags:

@@ -64,7 +64,7 @@ describe("env file loading", () => {
 });
 
 function createTempDir(): string {
-  const directory = mkdtempSync(join(tmpdir(), "coreify-env-"));
+  const directory = mkdtempSync(join(tmpdir(), "coreify-envx-"));
   tempDirectories.push(directory);
   return directory;
 }

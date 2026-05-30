@@ -16,20 +16,20 @@ describe("config loading", () => {
   it("rejects configs with non-schema values", async () => {
     const cwd = createTempDir();
     writeFileSync(
-      join(cwd, "coreify-env.config.mjs"),
+      join(cwd, "envx.config.mjs"),
       'export default { schema: { PORT: "3000" } };',
       "utf8"
     );
 
     await expect(loadEnvConfig({ cwd })).rejects.toThrow(
-      `Invalid Coreify env config at ${join(cwd, "coreify-env.config.mjs")}`
+      `Invalid envx config at ${join(cwd, "envx.config.mjs")}`
     );
   });
 
-  it("discovers coreenv config filenames", async () => {
+  it("discovers envx config filenames", async () => {
     const cwd = createTempDir();
     writeFileSync(
-      join(cwd, "coreenv.config.mjs"),
+      join(cwd, "envx.config.mjs"),
       'import { defineConfig, string } from "./dist-stub.mjs"; export default defineConfig({ schema: { DATABASE_URL: string() } });',
       "utf8"
     );
@@ -41,12 +41,12 @@ describe("config loading", () => {
 
     const result = await loadEnvConfig({ cwd });
 
-    expect(result?.path).toBe(join(cwd, "coreenv.config.mjs"));
+    expect(result?.path).toBe(join(cwd, "envx.config.mjs"));
   });
 });
 
 function createTempDir(): string {
-  const directory = mkdtempSync(join(tmpdir(), "coreify-env-config-"));
+  const directory = mkdtempSync(join(tmpdir(), "coreify-envx-config-"));
   tempDirectories.push(directory);
   return directory;
 }

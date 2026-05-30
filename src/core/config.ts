@@ -7,12 +7,9 @@ import { isFlatEnvSchema } from "./schema-utils";
 import { resolveCwd } from "./shared";
 
 const DEFAULT_CONFIG_FILES = [
-  "coreenv.config.mjs",
-  "coreenv.config.js",
-  "coreenv.config.cjs",
-  "coreify-env.config.mjs",
-  "coreify-env.config.js",
-  "coreify-env.config.cjs"
+  "envx.config.mjs",
+  "envx.config.js",
+  "envx.config.cjs"
 ] as const;
 
 export type CoreifyEnvConfig<TSchema extends EnvSchemaInput = EnvSchemaInput> = {
@@ -49,7 +46,7 @@ export async function loadEnvConfig(
     }
 
     throw new Error(
-      `Could not find a Coreify env config. Tried: ${DEFAULT_CONFIG_FILES.join(", ")}`
+      `Could not find an envx config. Tried: ${DEFAULT_CONFIG_FILES.join(", ")}`
     );
   }
 
@@ -57,7 +54,7 @@ export async function loadEnvConfig(
   const config = extractConfig(imported);
 
   if (!config || typeof config !== "object" || !("schema" in config)) {
-    throw new Error(`Invalid Coreify env config at ${path}`);
+    throw new Error(`Invalid envx config at ${path}`);
   }
 
   return {

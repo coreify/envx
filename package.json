@@ -1,11 +1,11 @@
 {
-  "name": "@coreify/env",
+  "name": "@coreify/envx",
   "version": "0.1.0",
-  "description": "Type-safe, minimal, and developer-first environment management for modern apps and CLIs.",
+  "description": "Type-safe, advanced, and developer-first environment management for modern apps and CLIs.",
   "type": "module",
   "sideEffects": false,
   "bin": {
-    "coreenv": "./bin/coreify-env.js"
+    "coreenvx": "./bin/envx.js"
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -47,12 +47,12 @@
   "author": "Coreify",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/coreify/env.git"
+    "url": "git+https://github.com/coreify/envx.git"
   },
   "bugs": {
-    "url": "https://github.com/coreify/env/issues"
+    "url": "https://github.com/coreify/envx/issues"
   },
-  "homepage": "https://env.js.org",
+  "homepage": "https://envx.js.org",
   "prepack": "npm run build",
   "publishConfig": {
     "access": "public"

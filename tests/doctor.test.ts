@@ -100,7 +100,7 @@ describe("diagnostics", () => {
 });
 
 function createTempDir(): string {
-  const directory = mkdtempSync(join(tmpdir(), "coreify-env-doctor-"));
+  const directory = mkdtempSync(join(tmpdir(), "coreify-envx-doctor-"));
   tempDirectories.push(directory);
   return directory;
 }

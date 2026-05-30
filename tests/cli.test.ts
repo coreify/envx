@@ -7,7 +7,7 @@ import { afterEach, describe, expect, it } from "vitest";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const packageRoot = resolve(__dirname, "..");
-const cliBin = resolve(packageRoot, "bin/coreify-env.js");
+const cliBin = resolve(packageRoot, "bin/envx.js");
 const distEntry = resolve(packageRoot, "dist/index.js");
 const tempDirectories: string[] = [];
 
@@ -92,7 +92,7 @@ describe("CLI", () => {
     const result = runCli(cwd, ["doctor"]);
 
     expect(result.status).toBe(1);
-    expect(result.stderr).toContain("Could not find a Coreify env config.");
+    expect(result.stderr).toContain("Could not find an envx config.");
   });
 
   it("forwards validateExample and runtimeEnv from config options", () => {
@@ -122,14 +122,14 @@ describe("CLI", () => {
 });
 
 function createProject(): string {
-  const directory = mkdtempSync(join(tmpdir(), "coreify-env-cli-"));
+  const directory = mkdtempSync(join(tmpdir(), "coreify-envx-cli-"));
   tempDirectories.push(directory);
   return directory;
 }
 
 function writeConfig(cwd: string, configBody: string): void {
   writeFileSync(
-    join(cwd, "coreify-env.config.mjs"),
+    join(cwd, "envx.config.mjs"),
     `import { defineConfig, number, string } from ${JSON.stringify(pathToFileURL(distEntry).href)};
 ${configBody}
 `,

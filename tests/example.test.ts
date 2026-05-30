@@ -140,7 +140,7 @@ describe(".env.example validation", () => {
 });
 
 function createTempDir(): string {
-  const directory = mkdtempSync(join(tmpdir(), "coreify-env-example-"));
+  const directory = mkdtempSync(join(tmpdir(), "coreify-envx-example-"));
   tempDirectories.push(directory);
   return directory;
 }

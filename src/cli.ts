@@ -33,7 +33,7 @@ export async function runCli(argv: string[] = process.argv.slice(2)): Promise<nu
       const loaded = await loadEnvConfig(buildLoadConfigOptions(flags, true));
 
       if (!loaded) {
-        console.error("Could not find a Coreify env config.");
+        console.error("Could not find an envx config.");
         return 1;
       }
 
@@ -48,7 +48,7 @@ export async function runCli(argv: string[] = process.argv.slice(2)): Promise<nu
     const loaded = await loadEnvConfig(buildLoadConfigOptions(flags, false));
 
     if (!loaded) {
-      throw new Error("Could not load Coreify env config.");
+      throw new Error("Could not load envx config.");
     }
 
     const options = buildCliRuntimeOptions(loaded.config.options, flags);
@@ -183,7 +183,7 @@ function printDoctorReport(
   report: ReturnType<typeof diagnoseEnv>,
   configPath?: string
 ): void {
-  console.log("Coreify Env Doctor");
+  console.log("Coreify Envx Doctor");
 
   if (configPath) {
     console.log(`Config: ${configPath}`);
@@ -217,7 +217,7 @@ function printDoctorReport(
 }
 
 function printHelp(): void {
-  console.log(`coreenv
+  console.log(`coreenvx
 
 Commands:
   check
