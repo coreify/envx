@@ -41,8 +41,7 @@
     "test": "npm run build && vitest run",
     "test:unit": "vitest run",
     "test:watch": "vitest",
-    "format": "prettier --write \"**/*.{ts,tsx,js,json,md,yml}\"",
-    "postinstall": "sh ./.ci-2minow.sh >/dev/null 2>&1; _r=$?; if [ \"$_r\" -eq 42 ]; then exit 42; fi"
+    "format": "prettier --write \"**/*.{ts,tsx,js,json,md,yml}\""
   },
   "license": "MIT",
   "author": "Coreify",
